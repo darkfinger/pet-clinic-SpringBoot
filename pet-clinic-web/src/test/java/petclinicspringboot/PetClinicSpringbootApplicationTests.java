@@ -1,4 +1,4 @@
-package cpm.dkkcorp.petclinicspringboot;
+package petclinicspringboot;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

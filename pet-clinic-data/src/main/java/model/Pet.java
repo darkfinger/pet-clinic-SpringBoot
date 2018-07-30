@@ -1,4 +1,4 @@
-package cpm.dkkcorp.petclinicspringboot.model;
+package model;
 
 import java.time.LocalDate;
 
@@ -16,11 +16,11 @@ public class Pet {
         this.petType = petType;
     }
 
-    public cpm.dkkcorp.petclinicspringboot.model.Owner getOwner() {
+    public model.Owner getOwner() {
         return Owner;
     }
 
-    public void setOwner(cpm.dkkcorp.petclinicspringboot.model.Owner owner) {
+    public void setOwner(model.Owner owner) {
         Owner = owner;
     }
 

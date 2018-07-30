@@ -1,4 +1,4 @@
-package cpm.dkkcorp.petclinicspringboot.model;
+package model;
 
 public class PetType {
 
