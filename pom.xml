@@ -4,7 +4,7 @@
 
     <groupId>cpm.dkkcorp</groupId>
     <artifactId>pet-clinic-springboot</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.1-SNAPSHOT</version>
 
     <modules>
         <module>pet-clinic-data</module>
@@ -46,7 +46,7 @@
     </build>
 
     <scm>
-        <developerConnection>scm:git:git@github.com:darkfinger/pet-clinic-SpringBoot.git</developerConnection>
+        <developerConnection>scm:git:https://github.com/darkfinger/pet-clinic-SpringBoot.git</developerConnection>
       <tag>pet-clinic-springboot-0.0.1</tag>
   </scm>
 
