@@ -1,8 +1,8 @@
-package services.map;
+package cpm.dkkcorp.petclinicspringboot.services.map;
 
-import model.Vet;
+import cpm.dkkcorp.petclinicspringboot.model.Vet;
+import cpm.dkkcorp.petclinicspringboot.services.VetService;
 import org.springframework.stereotype.Service;
-import services.VetService;
 
 import java.util.Set;
 
@@ -24,8 +24,8 @@ public class VetServiceMap extends AbstractMapService<Vet, Long> implements VetS
     }
 
     @Override
-    public void deletById(Long id) {
-        super.deletById(id);
+    public void deleteById(Long id) {
+        super.deleteById(id);
     }
 
     @Override

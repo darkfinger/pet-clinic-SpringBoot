@@ -1,11 +1,16 @@
-package services;
+package cpm.dkkcorp.petclinicspringboot.services;
 
 import java.util.Set;
 
 public interface CrudService<T, ID> {
-    T findById(ID id);
-    T save(T object);
+
     Set<T> findAll();
+
+    T findById(ID id);
+
+    T save(T object);
+
     void delete(T object);
-    void deletById(ID id);
+
+    void deleteById(ID id);
 }

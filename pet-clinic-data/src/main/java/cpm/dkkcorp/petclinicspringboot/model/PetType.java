@@ -1,4 +1,4 @@
-package model;
+package cpm.dkkcorp.petclinicspringboot.model;
 
 public class PetType extends BaseEntity{
 

@@ -5,6 +5,26 @@
     <title>Title</title>
 </head>
 <body>
+<!--/*@thymesVar id="owner" type="cpm.dkkcorp.petclinicspringboot.model.Owner"*/-->
 <h1 th:text="'Owner List reload'"></h1>
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th style="width: 150px;">Id</th>
+        <th style="width: 150px;">First Name</th>
+        <th style="width: 150px;">Last Name</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="owner : ${owners}">
+        <td th:text="${owner.id}">1</td>
+        <td th:text="${owner.firstName}">Joe</td>
+        <td th:text="${owner.lastName}">Buck</td>
+    </tr>
+    </tbody>
+</table>
+<p th:text="${theOwner.id}">Joe</p>
+<p th:text="${theOwner.firstName}">Joe</p>
+<p th:text="${theOwner.lastName}">Joe</p>
 </body>
 </html>

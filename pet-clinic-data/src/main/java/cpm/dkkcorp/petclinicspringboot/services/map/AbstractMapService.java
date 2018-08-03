@@ -1,4 +1,4 @@
-package services.map;
+package cpm.dkkcorp.petclinicspringboot.services.map;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -21,7 +21,7 @@ public abstract class AbstractMapService<T, ID> {
         map.put(id, object);
         return object;
     }
-    void deletById(ID id){
+    void deleteById(ID id){
         map.remove(id);
     }
     void delet(T object){

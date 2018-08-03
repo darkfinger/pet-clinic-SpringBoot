@@ -1,4 +1,4 @@
-package model;
+package cpm.dkkcorp.petclinicspringboot.model;
 
 import java.time.LocalDate;
 
@@ -16,11 +16,11 @@ public class Pet extends BaseEntity{
         this.petType = petType;
     }
 
-    public model.Owner getOwner() {
+    public cpm.dkkcorp.petclinicspringboot.model.Owner getOwner() {
         return Owner;
     }
 
-    public void setOwner(model.Owner owner) {
+    public void setOwner(cpm.dkkcorp.petclinicspringboot.model.Owner owner) {
         Owner = owner;
     }
 
