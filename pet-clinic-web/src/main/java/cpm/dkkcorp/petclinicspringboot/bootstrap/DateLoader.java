@@ -2,21 +2,22 @@ package cpm.dkkcorp.petclinicspringboot.bootstrap;
 
 import model.Owner;
 import model.Vet;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 import services.OwnerService;
 import services.VetService;
-import services.map.OwnerServiceMap;
-import services.map.VetServiceMap;
 
 @Component
 public class DateLoader implements CommandLineRunner {
 
     private final OwnerService ownerService;
     private final VetService vetService;
-    public DateLoader() {
-        ownerService=new OwnerServiceMap();
-        vetService=new VetServiceMap();
+
+    @Autowired
+    public DateLoader(OwnerService ownerService, VetService vetService) {
+        this.ownerService = ownerService;
+        this.vetService = vetService;
     }
 
     @Override
