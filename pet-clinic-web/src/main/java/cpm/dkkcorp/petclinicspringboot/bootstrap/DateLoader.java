@@ -2,8 +2,10 @@ package cpm.dkkcorp.petclinicspringboot.bootstrap;
 
 
 import cpm.dkkcorp.petclinicspringboot.model.Owner;
+import cpm.dkkcorp.petclinicspringboot.model.PetType;
 import cpm.dkkcorp.petclinicspringboot.model.Vet;
 import cpm.dkkcorp.petclinicspringboot.services.OwnerService;
+import cpm.dkkcorp.petclinicspringboot.services.PetTypeService;
 import cpm.dkkcorp.petclinicspringboot.services.VetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -14,15 +16,27 @@ public class DateLoader implements CommandLineRunner {
 
     private final OwnerService ownerService;
     private final VetService vetService;
+    private final PetTypeService petTypeService;
 
     @Autowired
-    public DateLoader(OwnerService ownerService, VetService vetService) {
+    public DateLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
+        this.petTypeService = petTypeService;
     }
+
 
     @Override
     public void run(String... args) throws Exception {
+
+        PetType dog = new PetType();
+        dog.setName("Dog");
+        PetType savedDog=petTypeService.save(dog);
+
+        PetType cat = new PetType();
+        dog.setName("cat");
+        PetType savedCat=petTypeService.save(cat);
+
 
         Owner o1=new Owner();
         o1.setFirstName("david");

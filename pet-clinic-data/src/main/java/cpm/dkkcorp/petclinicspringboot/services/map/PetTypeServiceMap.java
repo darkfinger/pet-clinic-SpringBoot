@@ -2,9 +2,11 @@ package cpm.dkkcorp.petclinicspringboot.services.map;
 
 import cpm.dkkcorp.petclinicspringboot.model.PetType;
 import cpm.dkkcorp.petclinicspringboot.services.PetTypeService;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class PetTypeServiceMap extends AbstractMapService<PetType, Long> implements PetTypeService {
     @Override
     public Set<PetType> findAll() {
