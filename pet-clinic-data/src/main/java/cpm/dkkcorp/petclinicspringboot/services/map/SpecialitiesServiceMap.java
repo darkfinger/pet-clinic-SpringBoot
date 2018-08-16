@@ -1,13 +1,13 @@
 package cpm.dkkcorp.petclinicspringboot.services.map;
 
 import cpm.dkkcorp.petclinicspringboot.model.Speciality;
-import cpm.dkkcorp.petclinicspringboot.services.SpecialitiesService;
+import cpm.dkkcorp.petclinicspringboot.services.SpecialityService;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
 @Service
-public class SpecialitiesServiceMap extends AbstractMapService<Speciality, Long> implements SpecialitiesService {
+public class SpecialitiesServiceMap extends AbstractMapService<Speciality, Long> implements SpecialityService {
     @Override
     public Set<Speciality> findAll() {
         return super.findAll();

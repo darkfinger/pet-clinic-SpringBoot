@@ -1,12 +1,10 @@
 package cpm.dkkcorp.petclinicspringboot.bootstrap;
 
 
-import cpm.dkkcorp.petclinicspringboot.model.Owner;
-import cpm.dkkcorp.petclinicspringboot.model.Pet;
-import cpm.dkkcorp.petclinicspringboot.model.PetType;
-import cpm.dkkcorp.petclinicspringboot.model.Vet;
+import cpm.dkkcorp.petclinicspringboot.model.*;
 import cpm.dkkcorp.petclinicspringboot.services.OwnerService;
 import cpm.dkkcorp.petclinicspringboot.services.PetTypeService;
+import cpm.dkkcorp.petclinicspringboot.services.SpecialityService;
 import cpm.dkkcorp.petclinicspringboot.services.VetService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -20,17 +18,25 @@ public class DateLoader implements CommandLineRunner {
     private final OwnerService ownerService;
     private final VetService vetService;
     private final PetTypeService petTypeService;
+    private final SpecialityService specialityService;
 
     @Autowired
-    public DateLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService) {
+    public DateLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialityService specialityService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
+        this.specialityService = specialityService;
     }
 
 
     @Override
     public void run(String... args) throws Exception {
+        int count=vetService.findAll().size();
+        if(count==0){
+            localData();
+        }
+    }
+    public void localData(){
 
         PetType dog = new PetType();
         dog.setName("Dog");
@@ -65,14 +71,30 @@ public class DateLoader implements CommandLineRunner {
         o3.setTelephon("123456");
         ownerService.save(o3);
 
+        Speciality speciality1=new Speciality();
+        speciality1.setDescrition("Radiology");
+        Speciality savedSpecial1 = specialityService.save(speciality1);
+
+        Speciality speciality2=new Speciality();
+        speciality1.setDescrition("surgery");
+        Speciality savedSpecial2 = specialityService.save(speciality2);
+
+
+        Speciality speciality3=new Speciality();
+        speciality1.setDescrition("Dentistry");
+        Speciality savedSpecial3 = specialityService.save(speciality3);
+
         Vet v1=new Vet();
         v1.setFirstName("jean");
         v1.setLastName("kiko");
+        v1.getSpecialities().add(savedSpecial1);
+        v1.getSpecialities().add(savedSpecial3);
         vetService.save(v1);
 
         Vet v2=new Vet();
         v2.setFirstName("kitana");
         v2.setLastName("nikal");
+        v2.getSpecialities().add(savedSpecial2);
         vetService.save(v2);
 
 
@@ -96,5 +118,7 @@ public class DateLoader implements CommandLineRunner {
         pet3.setOwner(o3);
         o3.getPets().add(pet3);
         pet3.setBirthDate(LocalDate.now());
+
+
     }
 }
