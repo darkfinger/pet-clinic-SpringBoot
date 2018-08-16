@@ -17,10 +17,16 @@ public class OwnerController {
     }
 
     @RequestMapping({"","/owners","/owners/index","/owners/index.html","owners/index.php"})
-    public String listOfVet(Model model){
+    public String listOfOwner(Model model){
 
         model.addAttribute("owners",ownerService.findAll());
         model.addAttribute("theOwner",ownerService.findById(1L));
         return "owners/index";
+    }
+
+    @RequestMapping({"","/owners/find","/owners/find","/owners/find.html","owners/find.php","/oups"})
+    public String findOwners(Model model){
+
+        return "notImplemented";
     }
 }

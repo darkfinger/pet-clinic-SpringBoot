@@ -15,7 +15,7 @@ public class VetController {
     @Autowired
     private final VetService vetService;
 
-    @RequestMapping({"","/vets","/vets/index","/vets/index.html","vets/index.php"})
+    @RequestMapping({"","/vets","/vets/index","/vets/index.html","vets/index.php","/vets.html"})
     public String listOfVet(Model model){
         model.addAttribute("vets",vetService.findAll());
         return "vets/index";
