@@ -2,10 +2,7 @@ package cpm.dkkcorp.petclinicspringboot.bootstrap;
 
 
 import cpm.dkkcorp.petclinicspringboot.model.*;
-import cpm.dkkcorp.petclinicspringboot.services.OwnerService;
-import cpm.dkkcorp.petclinicspringboot.services.PetTypeService;
-import cpm.dkkcorp.petclinicspringboot.services.SpecialityService;
-import cpm.dkkcorp.petclinicspringboot.services.VetService;
+import cpm.dkkcorp.petclinicspringboot.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -19,13 +16,14 @@ public class DateLoader implements CommandLineRunner {
     private final VetService vetService;
     private final PetTypeService petTypeService;
     private final SpecialityService specialityService;
-
+    private final VisitService visitService;
     @Autowired
-    public DateLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialityService specialityService) {
+    public DateLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialityService specialityService, VisitService visitService) {
         this.ownerService = ownerService;
         this.vetService = vetService;
         this.petTypeService = petTypeService;
         this.specialityService = specialityService;
+        this.visitService = visitService;
     }
 
 
@@ -53,7 +51,7 @@ public class DateLoader implements CommandLineRunner {
         o1.setAddress("palais");
         o1.setCity("kin");
         o1.setTelephon("123456");
-        ownerService.save(o1);
+
 
         Owner o2=new Owner();
         o2.setFirstName("glo");
@@ -61,7 +59,6 @@ public class DateLoader implements CommandLineRunner {
         o2.setAddress("palais");
         o2.setCity("kin");
         o2.setTelephon("123456");
-        ownerService.save(o2);
 
         Owner o3=new Owner();
         o3.setFirstName("zak");
@@ -69,7 +66,6 @@ public class DateLoader implements CommandLineRunner {
         o3.setAddress("palais");
         o3.setCity("kin");
         o3.setTelephon("123456");
-        ownerService.save(o3);
 
         Speciality speciality1=new Speciality();
         speciality1.setDescrition("Radiology");
@@ -119,6 +115,29 @@ public class DateLoader implements CommandLineRunner {
         o3.getPets().add(pet3);
         pet3.setBirthDate(LocalDate.now());
 
+        ownerService.save(o1);
+        ownerService.save(o2);
+        ownerService.save(o3);
+
+        Visit visit1=new Visit();
+        visit1.setDate(LocalDate.now());
+        visit1.setDescription("sneez");
+        visit1.setPet(pet1);
+        visitService.save(visit1);
+
+
+        Visit visit2=new Visit();
+        visit2.setDate(LocalDate.now());
+        visit2.setDescription("rage");
+        visit2.setPet(pet2);
+        visitService.save(visit2);
+
+
+        Visit visit3=new Visit();
+        visit3.setDate(LocalDate.now());
+        visit3.setDescription("aza na ba sili");
+        visit3.setPet(pet3);
+        visitService.save(visit3);
 
     }
 }

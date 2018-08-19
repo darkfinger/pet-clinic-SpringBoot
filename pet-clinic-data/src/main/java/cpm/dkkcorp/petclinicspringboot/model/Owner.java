@@ -13,7 +13,7 @@ public class Owner extends Person {
     private String city;
     private String telephon;
 
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner_id")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "Owner")
     private Set<Pet> pets=new HashSet<>();
 
     public String getAddress() {

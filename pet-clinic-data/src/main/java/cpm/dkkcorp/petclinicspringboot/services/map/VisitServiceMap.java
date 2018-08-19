@@ -19,12 +19,12 @@ public class VisitServiceMap extends AbstractMapService<Visit, Long> implements 
     }
 
     @Override
-    public Visit save(Visit object){
-    if (object.getPet()==null||object.getPet().getId()==null||object.getPet().getOwner()==null||object.getPet().getOwner().getId()==null){
-        throw new RuntimeException("not enought imformation to save the visit");
-    }else {
-        return super.save(object);
-    }
+    public Visit save(Visit object) {
+        if (object.getPet() == null || object.getPet().getOwner() == null || object.getPet().getOwner().getId() == null) {
+            throw new RuntimeException("not enought imformation to save the visit");
+        } else {
+            return super.save(object);
+        }
     }
 
     @Override
@@ -34,6 +34,6 @@ public class VisitServiceMap extends AbstractMapService<Visit, Long> implements 
 
     @Override
     public void deleteById(Long aLong) {
-super.deleteById(aLong);
+        super.deleteById(aLong);
     }
 }
