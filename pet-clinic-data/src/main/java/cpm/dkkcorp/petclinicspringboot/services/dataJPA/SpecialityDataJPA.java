@@ -22,19 +22,20 @@ public class SpecialityDataJPA implements SpecialityService {
 
     @Override
     public Set<Speciality> findAll() {
-        Set<Speciality> specialities=new HashSet<>();
+        Set<Speciality> specialities = new HashSet<>();
         specialityRepository.findAll().forEach(specialities::add);
         return specialities;
     }
 
     @Override
     public Speciality findById(Long aLong) {
-        Optional<Speciality> optionalSpeciality=specialityRepository.findById(aLong);
-        if (optionalSpeciality.isPresent()){
+        Optional<Speciality> optionalSpeciality = specialityRepository.findById(aLong);
+        if (optionalSpeciality.isPresent()) {
             return optionalSpeciality.get();
-        }else {
-        return null;
-    }}
+        } else {
+            return null;
+        }
+    }
 
     @Override
     public Speciality save(Speciality object) {
@@ -43,11 +44,11 @@ public class SpecialityDataJPA implements SpecialityService {
 
     @Override
     public void delete(Speciality object) {
-specialityRepository.delete(object);
+        specialityRepository.delete(object);
     }
 
     @Override
     public void deleteById(Long aLong) {
-specialityRepository.deleteById(aLong);
+        specialityRepository.deleteById(aLong);
     }
 }
