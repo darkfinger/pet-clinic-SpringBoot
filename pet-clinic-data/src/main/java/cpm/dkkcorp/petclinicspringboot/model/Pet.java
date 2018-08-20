@@ -1,10 +1,17 @@
 package cpm.dkkcorp.petclinicspringboot.model;
 
+import lombok.*;
+
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Entity
 public class Pet extends BaseEntity{
 
@@ -18,36 +25,4 @@ public class Pet extends BaseEntity{
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "pet")
     private Set<Visit> visits=new HashSet<>();
     private LocalDate birthDate;
-
-    public PetType getPetType() {
-        return petType;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setPetType(PetType petType) {
-        this.petType = petType;
-    }
-
-    public cpm.dkkcorp.petclinicspringboot.model.Owner getOwner() {
-        return Owner;
-    }
-
-    public void setOwner(cpm.dkkcorp.petclinicspringboot.model.Owner owner) {
-        Owner = owner;
-    }
-
-    public LocalDate getBirthDate() {
-        return birthDate;
-    }
-
-    public void setBirthDate(LocalDate birthDate) {
-        this.birthDate = birthDate;
-    }
 }
